@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## userテーブル
+## usersテーブル
 |Column            |Type  |Options    |
 |nickname          |string|null: false|
 |email             |string|null: false|
@@ -32,71 +32,50 @@ Things you may want to cover:
 |first_name        |string|null: false|
 |family_name_kana  |string|null: false|
 |first_name_kana   |string|null: false|
-|birth_day         |data  |null: false|
+|birth_day         |date  |null: false|
 
-has_one :card
-has_one :order
+has_many :orders
 has_many :items
 
-## itemテーブル
-|Column       |Type   |Options                       |
-|name         |string |null: false                   |
-|item_info    |string |null: false                   |
-|category     |string |null: false                   |
-|status       |string |null: false                   |
-|delivery_fee |string |null: false                   |
-|prefecture   |string |null: false                   |
-|delivery_days|string |null: false                   |
-|price        |string |null: false                   |
-|comment      |string |                              |
-|user_id      |integer|null: false, foreign_key: true|
-|category_id  |integer|null: false, foreign_key: true|
-|brand_id     |integer|null: false, foreign_key: true|
-|order_id     |integer|null: false, foreign_key: true|
+## itemsテーブル
+|Column          |Type     |Options                       |
+|name            |string   |null: false                   |
+|item_info       |string   |null: false                   |
+|category_id     |integer  |null: false                   |
+|status_id       |integer  |null: false                   |
+|delivery_fee_id |integer  |null: false                   |
+|prefecture_id   |integer  |null: false                   |
+|delivery_days_id|integer  |null: false                   |
+|price           |string   |null: false                   |
+|comment         |string   |                              |
+|user            |reference|null: false, foreign_key: true|
 
 belongs_to :user
-belongs_to :brand
-has_many :images
-belongs_to :category
+belongs_to :customer
 
-## orderテーブル
-|Column       |Type   |Options                       |
-|post_cord    |integer|null: false                   |
-|prefecture   |string |null: false                   |
-|city         |string |null: false                   |
-|house_number |integer|null: false                   |
-|building_name|integer|null: false                   |
-|phone        |integer|null: false                   |
-|user_id      |integer|null: false, foreign_key: true|
+## ordersテーブル
+|Column       |Type     |Options                       |
+|post_cord    |integer  |null: false                   |
+|prefecture   |string   |null: false                   |
+|city         |string   |null: false                   |
+|house_number |integer  |null: false                   |
+|building_name|integer  |null: false                   |
+|phone        |integer  |null: false                   |
+|user         |reference|null: false, foreign_key: true|
 
 belongs_to :user
+has_many :customers, through: :orders_customer
 
-## cardテーブル
-|Column        | Type  |Options                       |
-|card_number   |string |null: false                   |
-|date_of_expiry|data   |null: false                   |
-|security_code |integer|null: false                   |
-|user_id       |integer|null: false, foreign_key: true|
+## customersテーブル
+|Column          |Type     |Options                       |
+|family_name     |string   |null: false                   |
+|first_name      |string   |null: false                   |
+|family_name_kana|string   |null: false                   |
+|first_name_kana |string   |null: false                   |
+|address         |string   |null: false                   |
+|purchase_date   |date     |                              |
+|item            |reference|null: false, foreign_key: true|
+|user            |reference|null: false, foreign_key: true|
 
-belongs_to :user
-
-## imageテーブル
-|Column  |Type  |Options                       |
-|image   |string|null: false                   |
-|item_id |string|null: false, foreign_key: true|
-|order_id|string|null: false, foreign_key: true|
-
-belongs_to :item
-
-## categoryテーブル
-|Column  |Type  |Options    |
-|name    |string|null: false|
-|ancestry|string|null: false|
-
-has_many :items
-
-## brandテーブル
-|Column|Type  |Options    |
-|name  |string|null: false|
-
-has_many :item
+has_one :item
+has_many :orders, through: :orders_customer
