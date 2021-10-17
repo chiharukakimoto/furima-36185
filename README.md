@@ -62,7 +62,7 @@ has_one :order
 
 belongs_to :user
 belongs_to :item
-has_one :delivery
+has_one :deliveries
 
 ## deliveriesテーブル
 |Column          |Type   |Options                       |
