@@ -14,6 +14,5 @@ class Item < ApplicationRecord
   validates :delivery_fee_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :delivery_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :price, presence: true, format: {with: /^[0-9]+$/}
-  validates_inclusion_of :price, in:300..999999999
+  validates :price, inclusion: { in: 300..9999999 }, format: { with: /\A[0-9]+\z/ }
 end
