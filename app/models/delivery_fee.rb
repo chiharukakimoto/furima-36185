@@ -1,4 +1,4 @@
-class Delivery_fee < ActiveHash::Base
+class DeliveryFee < ActiveHash::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
   
     self.data = [
