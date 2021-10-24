@@ -38,16 +38,16 @@ has_many :orders
 has_many :items
 
 ## itemsテーブル
-|Column         |Type     |Options                       |
-|name           |string   |null: false                   |
-|item_info      |text     |null: false                   |
-|category_id    |integer  |null: false                   |
-|status_id      |integer  |null: false                   |
-|user           |reference|null: false, foreign_key: true|
-|delivery_fee_id|integer  |null: false                   |
-|prefecture_id  |integer  |null: false                   |
-|delivery_id    |integer  |null: false                   |
-|price          |integer  |null: false                   |
+|Column         |Type      |Options                       |
+|name           |string    |null: false                   |
+|item_info      |text      |null: false                   |
+|category_id    |integer   |null: false                   |
+|status_id      |integer   |null: false                   |
+|user           |references|null: false, foreign_key: true|
+|delivery_fee_id|integer   |null: false                   |
+|prefecture_id  |integer   |null: false                   |
+|delivery_id    |integer   |null: false                   |
+|price          |integer   |null: false                   |
 
 belongs_to :user
 has_one :order
