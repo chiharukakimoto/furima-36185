@@ -53,18 +53,15 @@ belongs_to :user
 has_one :order
 
 ## ordersテーブル
-|Column      |Type     |Options                       |
-|price       |integer  |null: false                   |
-|delivery_fee|integer  |null: false                   |
-|user        |reference|null: false, foreign_key: true|
-|user_id     |reference|null: false, foreign_key: true|
-|item_id     |reference|null: false, foreign_key: true|
+|Column   |Type      |Options                       |
+|user     |references|null: false, foreign_key: true|
+|item     |references|null: false, foreign_key: true|
 
 belongs_to :user
 belongs_to :item
 has_one :deliveries
 
-## deliveriesテーブル
+## addressテーブル
 |Column          |Type   |Options                       |
 |post_cord       |string |null: false                   |
 |prefecture_id   |integer|null: false                   |
