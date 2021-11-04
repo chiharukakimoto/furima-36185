@@ -4,10 +4,6 @@ class OrdersController < ApplicationController
     @order_address = OrderAddress.new
   end
 
-  def new
-    @order_address = OrderAddress.new
-  end
-
   def create
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
@@ -32,7 +28,7 @@ class OrdersController < ApplicationController
   private
   
   def order_params
-    params.require(:order_address).permit(:post_cord, :prefecture_id, :city, :house_number, :building_name, :phone).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:order_address).permit(:post_cord, :prefecture_id, :city, :house_number, :building_name, :phone ).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 end
 
