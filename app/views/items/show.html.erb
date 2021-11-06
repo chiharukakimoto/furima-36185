@@ -9,17 +9,19 @@
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %>
+      <% if @item == 0 %>
       <div class="sold-out">
         <span>Sold Out!!</span>
       </div>
+      <% end %>
       <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ 999,999,999
+        <%= "¥ #{@item.price}" %>
       </span>
       <span class="item-postage">
-        <%= "配送料負担" %>
+        <%= @item.delivery_fee.name %>
       </span>
     </div>
 
@@ -36,9 +38,9 @@
 
     <% if user_signed_in? && current_user.id == @item.user_id %>
     <div class="item-explain-box">
-      <span><%= @item.item_info %></span>
     </div>
     <% end %>
+    <span><%= @item.item_info %></span>
     <table class="detail-table">
       <tbody>
         <tr>
