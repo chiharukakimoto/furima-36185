@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
-  #attr_accessor :token, :price
+  attr_accessor :token, :item.price
   belongs_to :item
   has_one :address
-  #validates :token, persence: true
-  #validates :price, persen
+  validates :token, persence: true
 end
