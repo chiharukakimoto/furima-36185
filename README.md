@@ -69,5 +69,6 @@ has_one :deliveries
 |house_number    |string |null: false                   |
 |building_name   |string |                              |
 |phone           |string |null: false                   |
+|item_id         |integer|null: false                   |
 
 belongs_to :order
