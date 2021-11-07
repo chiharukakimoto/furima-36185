@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.all.order("created_at DESC")
+    @order_address = OrderAddress.new
   end
 
   def new
@@ -21,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @order_address = OrderAddress.new
   end
 
   def edit
