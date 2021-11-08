@@ -22,8 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @order_address = OrderAddress.new
-  end
+      @order_address = OrderAddress.new
+    end
 
   def edit
     redirect_to root_path unless current_user.id == @item.id
