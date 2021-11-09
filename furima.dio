@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="y3XftZXZSAZ5kjOH6nx8" name="ページ1">
-        <mxGraphModel dx="1990" dy="1923" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1390" dy="1452" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -25,7 +25,7 @@
                 <mxCell id="92" value="orders" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=20;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="-150" y="-260" width="300" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" value="price&#10;delivery_fee&#10;user&#10;user_id&#10;item_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=20;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="92" vertex="1">
+                <mxCell id="93" value="user&#10;item" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=20;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="92" vertex="1">
                     <mxGeometry y="30" width="300" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=20;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;startSize=10;endSize=10;sourcePerimeterSpacing=10;targetPerimeterSpacing=10;strokeWidth=2;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="20" edge="1">

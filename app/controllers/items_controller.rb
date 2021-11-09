@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.all.order("created_at DESC")
+    @order_address = OrderAddress.new
   end
 
   def new
@@ -21,13 +22,16 @@ class ItemsController < ApplicationController
   end
 
   def show
-  end
+      @order_address = OrderAddress.new
+    end
 
   def edit
+    if current_user.id == @item.id && @item.order
+      redirect_to root_path
+    end
   end
 
   def update
-    @item.update(item_params)
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
