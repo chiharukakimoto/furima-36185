@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     end
 
   def edit
-    if current_user.id == @item.id && @item.order
+    if current_user.id == @item.id || @item.order != nil
       redirect_to root_path
     end
   end
